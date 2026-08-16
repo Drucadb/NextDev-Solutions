@@ -1,0 +1,20 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/public",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/servicos", "destination": "/index.html" },
+    { "source": "/redes", "destination": "/index.html" },
+    { "source": "/contato", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
